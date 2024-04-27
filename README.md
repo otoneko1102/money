@@ -1,6 +1,6 @@
 # money
-為替レート計算機<br>
-URL: https://money.otoneko.jp/
+現在の為替レートで計算できます。<br>
+https://money.otoneko.jp/
 | Features | ✅/❌ |
 | --- | :---: |
 | 為替レート取得 | ✅ |
