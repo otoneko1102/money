@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>為替レート変換</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="converter">
-      <h2>為替レート変換</h2>
-      <div>
-        <label for="from">From:</label>
-        <input type="text" id="from" placeholder="USD">
-      </div>
-      <div>
-        <label for="to">To:</label>
-        <input type="text" id="to" placeholder="JPY">
-      </div>
-      <div>
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" placeholder="1">
-      </div>
-      <button onclick="convert()">変換</button>
-      <div id="result"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>為替レート変換</title>
+  <meta name="description" content="現在の為替レートで計算ができるツールです。">
+  <meta property="og:title" content="為替レート計算機">
+  <meta property="og:description" content="現在の為替レートで計算ができるツールです。">
+  <meta property="og:url" content="https://money.otoneko.jp/">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="converter">
+    <h2>為替レート変換</h2>
+    <div>
+      <label for="from">From:</label>
+      <input type="text" id="from" placeholder="USD">
     </div>
-    <script src="script.js"></script>
-  </body>
+    <div>
+      <label for="to">To:</label>
+      <input type="text" id="to" placeholder="JPY">
+    </div>
+    <div>
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" placeholder="1">
+    </div>
+    <button onclick="convert()">変換</button>
+    <div id="result"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
 </html>
