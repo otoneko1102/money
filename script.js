@@ -1,6 +1,6 @@
 function convert() {
-  var from = document.getElementById("from").value.toUpperCase();
-  var to = document.getElementById("to").value.toUpperCase();
+  var from = document.getElementById("from").value.toUpperCase() || "JPY";
+  var to = document.getElementById("to").value.toUpperCase() || "USD";
   var amount = parseFloat(document.getElementById("amount").value) || 1;
 
   fetch(`https://api.exchangerate-api.com/v4/latest/${from}`)
@@ -9,13 +9,13 @@ function convert() {
       if (data.rates[to]) {
         var rate = data.rates[to];
         var convertedAmount = amount * rate;
-        document.getElementById("result").innerText = `${amount} ${from} は ${convertedAmount.toFixed(2)} ${to} です。`;
+        document.getElementById("result").innerText = `${from}: ${amount} --> ${to}: ${convertedAmount}`;
       } else {
-        document.getElementById("result").innerText = "無効な通貨コードです。";
+        document.getElementById("result").innerText = "Unknown.";
       }
     })
     .catch(error => {
       console.error('Error:', error);
-      document.getElementById("result").innerText = "エラーが発生しました。";
+      document.getElementById("result").innerText = "Error.";
     });
 }
