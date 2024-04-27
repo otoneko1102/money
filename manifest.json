@@ -1,0 +1,16 @@
+{
+  "lang": "en-us",
+  "name": "為替レート計算機",
+  "short_name": "為替計算機",
+  "description": "現在の為替レートで計算します。",
+  "start_url": ".",
+  "orientation": "any",
+  "display": "standalone",
+  "version": "1.0.0",
+  "icons": [
+    {
+      "src": "https://money.otoneko.jp/img/icon.jpg",
+      "sizes": "2048x2048"
+    }
+  ]
+}
