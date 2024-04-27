@@ -1,21 +1,23 @@
 function convert() {
-  var from = document.getElementById("from").value.toUpperCase() || "JPY";
-  var to = document.getElementById("to").value.toUpperCase() || "USD";
-  var amount = parseFloat(document.getElementById("amount").value) || 1;
+  const from = document.getElementById("from").value.toUpperCase() || "JPY";
+  const to = document.getElementById("to").value.toUpperCase() || "USD";
+  const amount = parseFloat(document.getElementById("amount").value) || 1;
 
-  fetch(`https://api.exchangerate-api.com/v4/latest/${from}`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.rates[to]) {
-        var rate = data.rates[to];
-        var convertedAmount = amount * rate;
+  fetch(`https://www.google.com/finance/quote/${from}-${to}`)
+    .then(response => response.text())
+    .then(html => {
+      const startIndex = html.indexOf(`data-source="${from}" data-target="${to}" data-last-price="`) + `data-source="${from}" data-target="${to}" data-last-price="`.length;
+      const endIndex = html.indexOf('"', startIndex);
+      const rate = parseFloat(html.substring(startIndex, endIndex));
+      if (!isNaN(rate)) {
+        const convertedAmount = (amount * rate).toFixed(5);
         document.getElementById("result").innerText = `${from}: ${amount} --> ${to}: ${convertedAmount}`;
       } else {
-        document.getElementById("result").innerText = "Unknown.";
+        document.getElementById("result").innerText = "Error: Unable to retrieve exchange rate.";
       }
     })
     .catch(error => {
       console.error('Error:', error);
-      document.getElementById("result").innerText = "Error.";
+      document.getElementById("result").innerText = "Error: Unable to fetch data.";
     });
 }
